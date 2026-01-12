@@ -1,34 +1,34 @@
 #include <iostream>
 #include <string>
 
-int finnes_noe_l_eller_v(std::string a){
-    int buf = 0;
-    for(int i = 0; i < a.length(); i++){
-        if(a[i] == 'l' || a[i] == 'v'){
-            buf += 1;
+bool finnes_l(const std::string& a){
+    for(size_t i = 0; i < a.length(); i++){
+        if (a[i] == 'l'){
+            return true;
         }
     }
-    return buf;
+    return false;
 }
 
-int eksistererlv(std::string b){
-    int l = 0;
-    int v = 0;
-    for(int i = 0; i < b.length(); i++){
-        if(b[i] == 'l'){
-            l += 1;
-        }
-        else if(b[i] == 'v'){
-            v += 1;
+bool finnes_v(const std::string& b){
+    for(size_t i = 0; i < b.length(); i++){
+        if (b[i] == 'l'){
+            return true;
         }
     }
-    if(l > 0 && v > 0){
-        return 1;
-    }
-    else{
-        return l;
-    }
+    return false;
 }
+
+
+bool lv_sidenav(const std::string& c) {
+    for (size_t i = 0; i + 1 < c.length(); i++) {
+        if (c[i] == 'l' && c[i + 1] == 'v') {
+            return true;
+        }
+    }
+    return false;
+}
+
 
 
 
@@ -38,35 +38,22 @@ int main(){
    int antall_bokstaver;
    std::cin >> antall_bokstaver;
     std::cin >> ord;
-   if(ord.length() > antall_bokstaver){
-    std::cout << "program does not match the instructions" << std::endl;
-    return 0;
-   }
 
-   if((eksistererlv(ord)) != 1){
+
+    if(lv_sidenav(ord)){
+        std::cout << 0 << std::endl;
+        return 0;
+    }
+    else if((finnes_l(ord)) || (finnes_v(ord))){
         std::cout << 1 << std::endl;
         return 0;
-   }
-   else{
-    for(int i = 0; i < (ord.length()-1); i++){
-        if(ord[i] == 'l' && ord[(i+1)] == 'v'){
-            std::cout << 0 << std::endl;
-            break;
-        }
-   }
-    return 0;
-   }
+    }
+    else{
+        std::cout << 2 << std::endl;
+        return 0;
+    }
+  
+ 
 
 
-   if((finnes_noe_l_eller_v(ord)) < 1){
-    std::cout << 0 << std::endl;
-    return 0;
-   }
-   else{
-    std::cout << 1 << std::endl;
-    return 0;
-   }
-   
-
-   return 0;
-}
+   return 0;}

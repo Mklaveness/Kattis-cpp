@@ -11,6 +11,25 @@ int finnes_noe_l_eller_v(std::string a){
     return buf;
 }
 
+int eksistererlv(std::string b){
+    int l;
+    int v;
+    for(int i = 0; i < b.length(); i++){
+        if(b[i] == 'l'){
+            l += 1;
+        }
+        else if(b[i] == 'v'){
+            v += 1;
+        }
+    }
+    if(l > 0 && v > 0){
+        return 1;
+    }
+    else{
+        return l;
+    }
+}
+
 
 
 
@@ -28,7 +47,12 @@ int main(){
    if((finnes_noe_l_eller_v(ord)) < 1){
     std::cout << 0 << std::endl;
     return 0;
-   } 
+   }
+   
+   if((eksistererlv(ord)) != 1){
+    std::cout << 1 << std::endl;
+    return 0;
+   }
 
 
 }

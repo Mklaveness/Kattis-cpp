@@ -2,7 +2,7 @@
 #include <string>
 
 int finnes_noe_l_eller_v(std::string a){
-    int buf;
+    int buf = 0;
     for(int i = 0; i < a.length(); i++){
         if(a[i] == 'l' || a[i] == 'v'){
             buf += 1;
@@ -12,8 +12,8 @@ int finnes_noe_l_eller_v(std::string a){
 }
 
 int eksistererlv(std::string b){
-    int l;
-    int v;
+    int l = 0;
+    int v = 0;
     for(int i = 0; i < b.length(); i++){
         if(b[i] == 'l'){
             l += 1;
@@ -37,22 +37,36 @@ int main(){
     std::string ord;
    int antall_bokstaver;
    std::cin >> antall_bokstaver;
-
-   std::cin >> ord;
+    std::cin >> ord;
    if(ord.length() > antall_bokstaver){
     std::cout << "program does not match the instructions" << std::endl;
     return 0;
    }
 
+   if((eksistererlv(ord)) != 1){
+        std::cout << 1 << std::endl;
+        return 0;
+   }
+   else{
+    for(int i = 0; i < (ord.length()-1); i++){
+        if(ord[i] == 'l' && ord[(i+1)] == 'v'){
+            std::cout << 0 << std::endl;
+            break;
+        }
+   }
+    return 0;
+   }
+
+
    if((finnes_noe_l_eller_v(ord)) < 1){
     std::cout << 0 << std::endl;
     return 0;
    }
-   
-   if((eksistererlv(ord)) != 1){
+   else{
     std::cout << 1 << std::endl;
     return 0;
    }
+   
 
-
+   return 0;
 }

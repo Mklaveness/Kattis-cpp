@@ -1,0 +1,42 @@
+# ===== Operativsystem =====
+.DS_Store
+Thumbs.db
+
+# ===== Editor / IDE =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===== Bygg / kompilering =====
+a.out
+*.out
+*.exe
+*.class
+*.o
+*.obj
+
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+
+# ===== Java =====
+*.log
+*.jar
+
+# ===== C / C++ =====
+*.dSYM/
+cmake-build-*/
+
+# ===== Midlertidige filer =====
+tmp/
+temp/
+
+# ===== Kattis-spesifikt =====
+# Hv

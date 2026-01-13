@@ -62,6 +62,29 @@ void plussesammen_h(int b[4]) {
 }
 
 
+void redo_rows(int a[4], int b[4], int c[4], int d[4], int rad1[4], int rad2[4], int rad3[4], int rad4[4]){
+    rad1[0] = a[0];
+    rad1[1] = b[0];
+    rad1[2] = c[0];
+    rad1[3] = d[0];
+
+    rad2[0] = a[1];
+    rad2[1] = b[1];
+    rad2[2] = c[1];
+    rad2[3] = d[1];
+
+    rad3[0] = a[2];
+    rad3[1] = b[2];
+    rad3[2] = c[2];
+    rad3[3] = d[2];
+
+    rad4[0] = a[3];
+    rad4[1] = b[3];
+    rad4[2] = c[3];
+    rad4[3] = d[3];
+}
+
+
 
 int main(){
     int choice;
@@ -69,6 +92,11 @@ int main(){
     int second_row[4] = {0};
     int third_row[4] = {0};
     int forth_row[4] = {0};
+
+    int flipped_row1[4] = {0};
+    int flipped_row2[4] = {0};
+    int flipped_row3[4] = {0};
+    int flipped_row4[4] = {0};
 
     for(int i = 0; i < 4; i++) std::cin >> first_row[i];
     for(int i = 0; i < 4; i++) std::cin >> second_row[i];
@@ -145,6 +173,48 @@ int main(){
             }
             std::cout << "\n";
         }
+        else if(choice == 3){
+            redo_rows(first_row, second_row, third_row, forth_row, flipped_row1, flipped_row2, flipped_row3, flipped_row4);
+            sette_nullbak_h(flipped_row1);
+            plussesammen_h(flipped_row1);
+            sette_nullbak_h(flipped_row1);
+
+            sette_nullbak_h(flipped_row2);
+            plussesammen_h(flipped_row2);
+            sette_nullbak_h(flipped_row2);
+            
+            sette_nullbak_h(flipped_row3);
+            plussesammen_h(flipped_row3);
+            sette_nullbak_h(flipped_row3);
+
+            sette_nullbak_h(flipped_row4);
+            plussesammen_h(flipped_row4);
+            sette_nullbak_h(flipped_row4);
+            for(int i = 0; i < 4; i++) {
+                std::cout << flipped_row1[i] << " " << flipped_row2[i] << " " << flipped_row3[i] << " " << flipped_row4[i] << "\n";
+            }
+        }
+        else{
+            redo_rows(first_row, second_row, third_row, forth_row, flipped_row1, flipped_row2, flipped_row3, flipped_row4);
+            sette_nullbak_v(flipped_row1);
+            plussesammen_v(flipped_row1);
+            sette_nullbak_v(flipped_row1);
+
+            sette_nullbak_v(flipped_row2);
+            plussesammen_v(flipped_row2);
+            sette_nullbak_v(flipped_row2);
+            
+            sette_nullbak_v(flipped_row3);
+            plussesammen_v(flipped_row3);
+            sette_nullbak_v(flipped_row3);
+
+            sette_nullbak_v(flipped_row4);
+            plussesammen_v(flipped_row4);
+            sette_nullbak_v(flipped_row4);
+            for(int i = 0; i < 4; i++) {
+                std::cout << flipped_row1[i] << " " << flipped_row2[i] << " " << flipped_row3[i] << " " << flipped_row4[i] << "\n";
+        }
+    }
 
 
 

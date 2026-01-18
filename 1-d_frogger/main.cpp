@@ -7,11 +7,9 @@ int main(){
     int board_squares;
     int starting_square;
     int magic_number;
-    
-
-    std::vector<int> numbers_insquare(board_squares);
 
     std::cin >> board_squares >> starting_square >> magic_number; 
+    std::vector<int> numbers_insquare(board_squares);
     for(int i = 0; i < board_squares; i++){
         std::cin >> numbers_insquare[i];
     }
@@ -33,16 +31,13 @@ int main(){
             std::cout << "right" << "\n" << amount_of_moves;
             break;
         }
-        else if(numbers_insquare[indx] != magic_number && numbers_insquare[indx] < 0){
+        else if((numbers_insquare[indx] != magic_number) && (numbers_insquare[indx] < 0)){
             indx = indx - std::abs(numbers_insquare[indx]);
             amount_of_moves++;
         }
         else if(numbers_insquare[indx] != magic_number){
             indx = indx + std::abs(numbers_insquare[indx]);
             amount_of_moves++;
-        }
-        else if(indx == cycle){
-            std::cout << "cycle" << "\n" << amount_of_moves;
         }
         
     }        
